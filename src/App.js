@@ -1,8 +1,9 @@
+import { Desktop } from "./pages/Desktop";
 
 
 function App() {
   return (
-    <div>Hola</div>
+    <Desktop />
   )
 }
 
