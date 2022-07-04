@@ -34,14 +34,14 @@ export const TaskBar = ({ theme }) => {
             <div className="taskbar--internal-frame">
                 {rightElements.map((e, i) => {
                     return (
-                        <MenuButton type={e.type} info={e.info} Symbol={e.symbol} theme={theme} />
+                        <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} />
                     )
                 })}
             </div>
             <div className="taskbar--internal-frame">
                 {leftElements.map((e, i) => {
                     return (
-                        <MenuButton type={e.type} info={e.info} Symbol={e.symbol} theme={theme} />
+                        <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} />
                     )
                 })}
             </div>
