@@ -1,0 +1,17 @@
+.taskbar--main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5vh;
+    background-color: var(--primary-color);
+}
+
+.taskbar--internal-frame {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+
+    &:last-of-type {
+        justify-content: end;
+    }
+}
