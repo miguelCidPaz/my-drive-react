@@ -16,6 +16,8 @@
     position: relative;
     transition-duration: 0.5s;
     background-color: var(--primary-color);
+    height: 100%;
+    max-height: 100px;
 
     &::after {
         content: "";
