@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TaskBar } from "../components/TaskBar/TaskBar"
 import { Window } from "../components/Window/Window";
 import { ConfigExplorer } from "../components/ConfigExplorer/ConfigExplorer";
@@ -27,10 +27,16 @@ export const Desktop = ({ theme }) => {
         }
     }
 
+
     const closeWindow = (id) => {
-        const newWindows = windows.filter(e => e === id)
+        const newWindows = windows.filter(e => e !== id)
         setWindows(newWindows);
     }
+
+
+    useEffect(() => {
+
+    }, [windows])
 
     return (
         <main className="desktop--main">

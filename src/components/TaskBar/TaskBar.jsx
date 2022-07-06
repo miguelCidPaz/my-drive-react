@@ -16,7 +16,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { MenuButton } from "../Buttons/MenuButton";
 import { StartMenu } from "../StartMenu/StartMenu";
 
-export const TaskBar = ({ theme, closeWindow, openWindow }) => {
+export const TaskBar = ({ theme, openWindow }) => {
     const [deploy, setDeploy] = useState(false)
 
     useEffect(() => {
@@ -39,7 +39,6 @@ export const TaskBar = ({ theme, closeWindow, openWindow }) => {
 
             {deploy ? <StartMenu
                 theme={theme}
-                closeWindow={closeWindow}
                 openWindow={openWindow} /> : null}
 
             <div className="taskbar--internal-frame">

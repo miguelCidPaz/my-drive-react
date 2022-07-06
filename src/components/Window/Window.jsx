@@ -23,9 +23,9 @@ export const Window = ({ children, id, closeWindow }) => {
     }
 
     const options = [
-        { info: 'Cerrar', Symbol: CloseIcon, color: "close", click: closeWindow(id) },
-        { info: 'Maximizar', Symbol: Crop32Icon, color: "maximize", click: resizeWindow('max') },
-        { info: 'Minimizar', Symbol: MinimizeIcon, color: "minimize", click: resizeWindow('min') }
+        { info: 'Cerrar', Symbol: CloseIcon, color: "close", id: id, click: closeWindow },
+        { info: 'Maximizar', Symbol: Crop32Icon, color: "maximize", id: 'max', click: resizeWindow },
+        { info: 'Minimizar', Symbol: MinimizeIcon, color: "minimize", id: 'min', click: resizeWindow }
     ]
 
     return (
@@ -33,13 +33,19 @@ export const Window = ({ children, id, closeWindow }) => {
             <div className="window--options">
                 {options.map((e, i) => {
                     return <WindowButton
+                        key={i}
                         info={e.info}
                         Symbol={e.Symbol}
                         color={e.color}
-                        click={e.click} />
+                        click={e.click}
+                        id={e.id}
+                    />
+
                 })}
             </div>
-            {children}
+            <>
+                {children}
+            </>
         </section>
     )
 }
