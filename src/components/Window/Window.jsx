@@ -4,7 +4,7 @@ import Crop32Icon from '@mui/icons-material/Crop32';
 import { WindowButton } from './internal-components/WindowButton';
 import { useState } from 'react';
 
-export const Window = ({ children, id, closeWindow }) => {
+export const Window = ({ theme, children, id, closeWindow }) => {
     const [maximize, setMaximize] = useState(false)
     const [minimize, setMinimize] = useState(false)
 
@@ -29,7 +29,7 @@ export const Window = ({ children, id, closeWindow }) => {
     ]
 
     return (
-        <section className="window--main">
+        <section className={`window--main ${theme}`}>
             <div className="window--options">
                 {options.map((e, i) => {
                     return <WindowButton

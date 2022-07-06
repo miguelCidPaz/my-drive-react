@@ -5,7 +5,7 @@ export const WindowButton = ({ color, info, Symbol, click, id }) => {
             <div className="window--button-info">{info}</div>
             <button className={`window--button window--button-${color}`}
                 onClick={() => click(id)}>
-                <Symbol className="window--button-symbol" />
+                <Symbol className="window--button-symbol" fontSize="30px" />
             </button>
         </>
     )

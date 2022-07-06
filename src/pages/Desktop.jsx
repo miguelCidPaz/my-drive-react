@@ -13,7 +13,7 @@ export const Desktop = ({ theme }) => {
                 return <ConfigExplorer />
 
             case 'explorer':
-                return <FolderExplorer id={id} />
+                return <FolderExplorer />
 
             default:
                 return <FolderExplorer id={id} />
@@ -44,7 +44,7 @@ export const Desktop = ({ theme }) => {
 
                 {windows.length > 0 ? windows.map((e, i) => {
                     return (
-                        <Window id={e} closeWindow={closeWindow} key={i}>
+                        <Window theme={theme} id={e} closeWindow={closeWindow} key={i}>
                             {whatWindowOpen(e)}
                         </Window>
                     )
