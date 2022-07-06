@@ -1,5 +1,24 @@
 .window--main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     width: 600px;
     height: 600px;
     background-color: var(--primary-color);
+}
+
+.window--main-maximize {
+    width: 95%;
+    height: 95%;
+}
+
+.window--main-minimize {
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+}
+
+.window--options {
+    width: 100%;
+    height: 50px;
 }
