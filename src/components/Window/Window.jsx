@@ -4,7 +4,7 @@ import Crop32Icon from '@mui/icons-material/Crop32';
 import { WindowButton } from './internal-components/WindowButton';
 import { useState } from 'react';
 
-export const Window = ({ children }) => {
+export const Window = ({ children, closeWindow }) => {
     const [maximize, setMaximize] = useState(false)
     const [minimize, setMinimize] = useState(false)
 
@@ -23,7 +23,7 @@ export const Window = ({ children }) => {
     }
 
     const options = [
-        { info: 'Cerrar', Symbol: CloseIcon, color: "close", click: () => { } },
+        { info: 'Cerrar', Symbol: CloseIcon, color: "close", click: closeWindow() },
         { info: 'Maximizar', Symbol: Crop32Icon, color: "maximize", click: resizeWindow('max') },
         { info: 'Minimizar', Symbol: MinimizeIcon, color: "minimize", click: resizeWindow('min') }
     ]
