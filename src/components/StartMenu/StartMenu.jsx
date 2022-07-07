@@ -9,8 +9,12 @@ export const StartMenu = ({ theme, openWindow }) => {
         openWindow('config')
     }
 
+    const openLogin = () => {
+        openWindow('login')
+    }
+
     const menuOptions = [
-        { type: 'main', info: 'Cuenta', symbol: AccountCircleIcon, click: openConfig },
+        { type: 'main', info: 'Cuenta', symbol: AccountCircleIcon, click: openLogin },
         { type: 'main', info: 'Opciones', symbol: SettingsIcon, click: openConfig }
     ]
 
