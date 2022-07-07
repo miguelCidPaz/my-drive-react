@@ -7,6 +7,7 @@
     width: 600px;
     height: 600px;
     border-radius: 10px;
+    text-align: end;
     background-color: var(--primary-color);
 }
 
@@ -28,26 +29,69 @@
     justify-content: end;
     background-color: var(--primary-color-deg-light);
     width: 100%;
-    height: 30px;
+    height: 40px;
+}
+
+.window--title {
+    text-align: left !important;
+    color: white;
 }
 
 .window--button-info {
-    display: none;
-    color: white;
     position: absolute;
+    display: none;
+    color: var(--secondary-color);
     top: 40px;
 }
 
 .window--button {
     margin-right: 10px;
+    outline: none;
+    border: none;
     cursor: pointer;
     border-radius: 100%;
     padding: 5px;
+    transition-duration: 0.2s;
+    color: white;
 
     &:hover {
-        background-color: red;
         .window--button-info {
-            display: flex;
+            display: block;
         }
+
+        .window--button-symbol {
+            text-shadow: 0 10px white !important;
+        }
+    }
+}
+
+.window--button-symbol {
+    color: var(--secondary-color);
+}
+
+.window--button-close {
+    background-color: red;
+    box-shadow: 0 0 2px red;
+
+    &:hover {
+        box-shadow: 0 0 10px red, 0 0 5px inset rgb(243, 102, 102);
+    }
+}
+
+.window--button-maximize {
+    background-color: orange;
+    box-shadow: 0 0 2px orange;
+
+    &:hover {
+        box-shadow: 0 0 10px orange, 0 0 5px inset rgb(248, 204, 123);
+    }
+}
+
+.window--button-minimize {
+    background-color: green;
+    box-shadow: 0 0 2px green;
+
+    &:hover {
+        box-shadow: 0 0 10px green, 0 0 5px inset rgb(105, 236, 105);
     }
 }

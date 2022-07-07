@@ -40,8 +40,8 @@ export const Window = ({ theme, children, id, closeWindow }) => {
                         click={e.click}
                         id={e.id}
                     />
-
                 })}
+                <p className='window--title'>Configuracion</p>
             </div>
             <>
                 {children}

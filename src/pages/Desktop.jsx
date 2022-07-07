@@ -12,6 +12,9 @@ export const Desktop = ({ theme }) => {
             case 'config':
                 return <ConfigExplorer />
 
+            case 'login':
+                return <ConfigExplorer id='login' />
+
             case 'explorer':
                 return <FolderExplorer />
 
