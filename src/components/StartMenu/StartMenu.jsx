@@ -3,11 +3,19 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { MenuButton } from '../Buttons/MenuButton';
 
 
-export const StartMenu = ({ theme }) => {
+export const StartMenu = ({ theme, openWindow }) => {
+
+    const openConfig = () => {
+        openWindow('config')
+    }
+
+    const openLogin = () => {
+        openWindow('login')
+    }
 
     const menuOptions = [
-        { type: 'main', info: 'Cuenta', symbol: AccountCircleIcon },
-        { type: 'main', info: 'Opciones', symbol: SettingsIcon }
+        { type: 'main', info: 'Cuenta', symbol: AccountCircleIcon, click: openLogin },
+        { type: 'main', info: 'Opciones', symbol: SettingsIcon, click: openConfig }
     ]
 
     return (

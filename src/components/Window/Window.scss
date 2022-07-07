@@ -1,0 +1,107 @@
+.window--main {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    border-radius: 10px;
+    text-align: end;
+    background-color: var(--primary-color);
+}
+
+.window--main-maximize {
+    width: 95%;
+    height: 95%;
+}
+
+.window--main-minimize {
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+}
+
+.window--bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.window--options {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--primary-color-deg-light);
+    width: 20%;
+    height: 40px;
+
+    &:first-of-type {
+        width: 80%;
+        padding-left: 20px;
+    }
+}
+
+.window--title {
+    text-align: left !important;
+    color: white;
+}
+
+.window--button-info {
+    position: absolute;
+    display: none;
+    color: var(--secondary-color);
+    top: 40px;
+}
+
+.window--button {
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 5px;
+    transition-duration: 0.2s;
+    color: white;
+
+    &:hover {
+        .window--button-info {
+            display: block;
+        }
+
+        .window--button-symbol {
+            text-shadow: 0 10px white !important;
+        }
+    }
+}
+
+.window--button-symbol {
+    color: var(--secondary-color);
+}
+
+.window--button-close {
+    background-color: red;
+    box-shadow: 0 0 2px red;
+
+    &:hover {
+        box-shadow: 0 0 10px red, 0 0 5px inset rgb(243, 102, 102);
+    }
+}
+
+.window--button-maximize {
+    background-color: orange;
+    box-shadow: 0 0 2px orange;
+
+    &:hover {
+        box-shadow: 0 0 10px orange, 0 0 5px inset rgb(248, 204, 123);
+    }
+}
+
+.window--button-minimize {
+    background-color: green;
+    box-shadow: 0 0 2px green;
+
+    &:hover {
+        box-shadow: 0 0 10px green, 0 0 5px inset rgb(105, 236, 105);
+    }
+}
