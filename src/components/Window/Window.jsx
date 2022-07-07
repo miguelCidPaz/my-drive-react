@@ -31,6 +31,9 @@ export const Window = ({ theme, children, id, closeWindow }) => {
     return (
         <section className={`window--main ${theme}`}>
             <div className="window--options">
+                <p className='window--title'>Configuracion</p>
+            </div>
+            <div className="window--options">
                 {options.map((e, i) => {
                     return <WindowButton
                         key={i}
@@ -41,7 +44,6 @@ export const Window = ({ theme, children, id, closeWindow }) => {
                         id={e.id}
                     />
                 })}
-                <p className='window--title'>Configuracion</p>
             </div>
             <>
                 {children}
