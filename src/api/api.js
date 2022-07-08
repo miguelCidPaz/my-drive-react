@@ -1,5 +1,8 @@
 
+
 export function signIn(uName, password) {
+
+
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -18,7 +21,8 @@ export function signIn(uName, password) {
   return fetch("http://localhost:4000/my-drive/usr/login", requestOptions)
     .then(response => response.json())
     .then(result => {
-      localStorage.setItem('uToken', result.token);
+      localStorage.setItem('uToken', result);
+      return result;
     })
     .catch(error => console.log('error', error));
 }
