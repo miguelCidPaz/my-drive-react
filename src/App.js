@@ -1,17 +1,11 @@
-
-import SignUpForm from './components/SignUpForm/SignUpForm';
-
-import SignIn from './components/SignInForm/SignInForm';
-
+import { Desktop } from "./pages/Desktop";
+import { useState } from "react";
+import './styles.scss';
 
 function App() {
-
+  const [theme, setTheme] = useState('dark');
   return (
-    <div>
-      <SignUpForm></SignUpForm>
-      {/* <SignIn></SignIn> */}
-
-    </div>
+    <Desktop theme={theme} />
   )
 }
 

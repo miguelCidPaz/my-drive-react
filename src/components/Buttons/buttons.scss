@@ -1,0 +1,84 @@
+.buttons--help {
+    display: none;
+    position: absolute;
+    top: -20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 5px;
+}
+
+.buttons--general {
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition-duration: 0.5s;
+    background-color: var(--primary-color);
+    height: 100%;
+    max-height: 100px;
+    cursor: pointer;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background-color: transparent;
+        transition-duration: 0.4s;
+    }
+
+    &:hover {
+        background-color: var(--secondary-color-deg-light);
+
+        .buttons--help {
+            display: block;
+        }
+
+        &::after {
+            background-color: var(--secondary-color);
+        }
+    }
+}
+
+.buttons--symbol {
+    color: var(--secondary-color);
+}
+
+.mainbutton--main {
+    width: 70px;
+    .buttons--symbol {
+        font-size: 40px;
+    }
+}
+
+.microbutton--main {
+    width: 50px;
+    .buttons--symbol {
+        font-size: 20px;
+    }
+}
+
+.search--main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 500px;
+
+    button {
+        width: 15%;
+    }
+}
+
+.search--input {
+    width: 85%;
+    background-color: var(--secondary-color-deg-light);
+    box-shadow: 0 0 2px inset var(--secondary-color-deg-dark);
+    font-size: 20px;
+    color: var(--secondary-color);
+    padding: 5px;
+    border: none;
+    outline: none;
+}

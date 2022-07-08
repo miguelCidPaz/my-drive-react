@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './styles.scss';
 import i18next from 'i18next';
 import global_en from "./translations/en/global.json"
 import global_es from "./translations/es/global.json"
