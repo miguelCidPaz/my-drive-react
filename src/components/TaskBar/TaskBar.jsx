@@ -16,7 +16,11 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { MenuButton } from "../Buttons/MenuButton";
 import { StartMenu } from "../StartMenu/StartMenu";
 
+import { useTranslation } from "react-i18next";
+
 export const TaskBar = ({ theme, openWindow }) => {
+
+    const [t, i18n] = useTranslation("global");
     const [deploy, setDeploy] = useState(false)
 
     useEffect(() => {
@@ -24,14 +28,14 @@ export const TaskBar = ({ theme, openWindow }) => {
     }, [deploy])
 
     const rightElements = [
-        { type: 'main', info: 'Inicio', symbol: !deploy ? KeyboardArrowDownIcon : KeyboardArrowUpIcon, click: () => setDeploy(!deploy) },
-        { type: 'search', info: 'Busqueda', symbol: SearchIcon },
-        { type: 'main', info: 'Carpetas', symbol: FolderSharedIcon, click: () => openWindow('explorer') }
+        { type: 'main', info: t("Info.start"), symbol: !deploy ? KeyboardArrowDownIcon : KeyboardArrowUpIcon, click: () => setDeploy(!deploy) },
+        { type: 'search', info: t("Info.search"), symbol: SearchIcon },
+        { type: 'main', info: t("Info.folders"), symbol: FolderSharedIcon, click: () => openWindow('explorer') }
     ]
 
     const leftElements = [
-        { type: 'micro', info: 'Hora', symbol: QueryBuilderIcon },
-        { type: 'micro', info: 'Idioma', symbol: LanguageIcon }
+        { type: 'micro', info: t("Info.time"), symbol: QueryBuilderIcon },
+        { type: 'micro', info: t("Info.language"), symbol: LanguageIcon }
     ]
 
     return (

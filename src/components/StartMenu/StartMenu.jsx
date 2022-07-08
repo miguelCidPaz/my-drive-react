@@ -2,8 +2,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { MenuButton } from '../Buttons/MenuButton';
 
+import { useTranslation } from "react-i18next";
+
 
 export const StartMenu = ({ theme, openWindow }) => {
+
+    const [t, i18n] = useTranslation("global");
+
 
     const openConfig = () => {
         openWindow('config')
@@ -14,8 +19,8 @@ export const StartMenu = ({ theme, openWindow }) => {
     }
 
     const menuOptions = [
-        { type: 'main', info: 'Cuenta', symbol: AccountCircleIcon, click: openLogin },
-        { type: 'main', info: 'Opciones', symbol: SettingsIcon, click: openConfig }
+        { type: 'main', info: t("Info.account"), symbol: AccountCircleIcon, click: openLogin },
+        { type: 'main', info: t("Info.options"), symbol: SettingsIcon, click: openConfig }
     ]
 
     return (

@@ -1,3 +1,29 @@
 {
-    "hola": "hola"
+    "Buttons": {
+        "placeholder": "Type here to search"
+    },
+    "Form": {
+        "changeLabel": "You still do not have an account?",
+        "changeForm": "Are you already logged in?",
+        "signUp": "Create new account",
+        "signIn": "Log in",
+        "title": "My Own Drive"
+    },
+    "SignIn": {
+        "username": "Username",
+        "password": "Password",
+        "btnSignIn": "Sign In"
+    },
+    "Info": {
+        "close": "Close",
+        "maximize": "Maximize",
+        "minimize": "Minimize",
+        "start": "Start",
+        "search": "Search",
+        "folders": "Folders",
+        "time": "Time",
+        "language": "Language",
+        "account": "Account",
+        "options": "Options"
+    }
 }

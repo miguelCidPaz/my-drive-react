@@ -1,3 +1,29 @@
 {
-    "hola": "hola"
+    "Buttons": {
+        "placeholder": "Escribe aquí para buscar"
+    },
+    "Form": {
+        "changeLabel": "¿Todavía no tienes una cuenta?",
+        "changeForm": "¿Tienes una cuenta?",
+        "signUp": "Crear una nueva cuenta",
+        "signIn": "Inicia Sessión",
+        "title": "Mi Propio Drive"
+    },
+    "SignIn": {
+        "username": "Usuario",
+        "password": "Contraseña",
+        "btnSignIn": "Iniciar Sesión"
+    },
+    "Info": {
+        "close": "Cerrar",
+        "maximize": "Maximizar",
+        "minimize": "Minimizar",
+        "start": "Inicio",
+        "search": "Buscar",
+        "folders": "Carpetas",
+        "time": "Hora",
+        "language": "Idioma",
+        "account": "Cuenta",
+        "options": "Opciones"
+    }
 }
