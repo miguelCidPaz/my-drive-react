@@ -26,7 +26,7 @@ export const TaskBar = ({ theme, openWindow }) => {
     const rightElements = [
         { type: 'main', info: 'Inicio', symbol: !deploy ? KeyboardArrowDownIcon : KeyboardArrowUpIcon, click: () => setDeploy(!deploy) },
         { type: 'search', info: 'Busqueda', symbol: SearchIcon },
-        { type: 'main', info: 'Carpetas', symbol: FolderSharedIcon }
+        { type: 'main', info: 'Carpetas', symbol: FolderSharedIcon, click: () => openWindow('explorer') }
     ]
 
     const leftElements = [

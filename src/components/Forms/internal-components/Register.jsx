@@ -1,30 +1,55 @@
-export const Register = ({ action }) => {
+import { useForm } from "react-hook-form"
 
-    const handleForm = (event) => {
-        const { name, pass, email, biography } = event
-        event.preventDefault();
+import { useEffect, useState } from 'react';
+import { signUp } from '../../../api/api'
 
+
+// import './SignUpForm.scss';
+
+
+
+export const Register = () => {
+
+  const [file, setFile] = useState(null);
+
+  useEffect(() => {
+    console.log('useEffect');
+    console.log(file);
+  }, [file])
+
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = data => {
+
+    const { password } = data;
+
+    const pswd = parseInt(password);
+
+    signUp({
+      ...data,
+      pswd,
+      picture: file
     }
+    );
+  };
 
-    return (
-        <form className="form--body" onSubmit={handleForm}>
-            <label>
-                <p>name:</p>
-                <input type="text" name="name" id="name" />
-            </label>
-            <label>
-                <p>pass:</p>
-                <input type="password" name="pass" id="pass" />
-            </label>
-            <label>
-                <p>email:</p>
-                <input type="email" name="email" id="pass" />
-            </label>
-            <label>
-                <p>bio:</p>
-                <textarea name="biography" cols="30" rows="10"></textarea>
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
-    )
+
+
+
+  return (
+    <div className="form--body">
+      <h2 className="form--label">Register Now!</h2>
+
+      <form id='form' className='form--container' onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
+        <input type="text" {...register("username")} placeholder='Username *' className="form--input"/>
+        <input type="password" {...register("password")} placeholder='Password *' className="form--input"/>
+        <input type="text" {...register("email")} placeholder='Email *' className="form--input"/>
+        <input type="text" {...register("biography")} placeholder='Biography *' className="form--input"/>
+        <input id="file" type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setFile(e.target.files[0])} className="form--input"/>
+
+        <button className='btn'>Sign Up</button>
+      </form>
+    </div>
+
+  )
 }

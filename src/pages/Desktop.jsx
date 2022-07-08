@@ -10,16 +10,16 @@ export const Desktop = ({ theme }) => {
     const whatWindowOpen = (id) => {
         switch (id) {
             case 'config':
-                return <ConfigExplorer />
+                return <ConfigExplorer theme={theme}/>
 
             case 'login':
-                return <ConfigExplorer id='login' />
+                return <ConfigExplorer id='login' theme={theme}/>
 
             case 'explorer':
-                return <FolderExplorer />
+                return <FolderExplorer theme={theme}/>
 
             default:
-                return <FolderExplorer id={id} />
+                return <FolderExplorer id={id} theme={theme}/>
         }
     }
 

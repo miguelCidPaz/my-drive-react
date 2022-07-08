@@ -1,11 +1,17 @@
 import { Desktop } from "./pages/Desktop";
 import { useState } from "react";
 import './styles.scss';
+import { ProviderLogin } from "./components/Context/userContext";
+
 
 function App() {
   const [theme, setTheme] = useState('dark');
+
   return (
-    <Desktop theme={theme} />
+    <ProviderLogin>
+      <Desktop theme={theme} />
+
+    </ProviderLogin>
   )
 }
 
