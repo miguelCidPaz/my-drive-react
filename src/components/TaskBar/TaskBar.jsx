@@ -18,14 +18,10 @@ import { StartMenu } from "../StartMenu/StartMenu";
 
 import { useTranslation } from "react-i18next";
 
-import { UserContext } from '../Context/userContext'
-
 export const TaskBar = ({ theme, openWindow }) => {
 
     const [t, i18n] = useTranslation("global");
     const [deploy, setDeploy] = useState(false)
-
-    const { username, token, connectSession } = useContext(UserContext)
 
     useEffect(() => {
 
@@ -41,8 +37,6 @@ export const TaskBar = ({ theme, openWindow }) => {
         { type: 'micro', info: t("Info.time"), symbol: QueryBuilderIcon },
         { type: 'micro', info: t("Info.language"), symbol: LanguageIcon }
     ]
-
-    console.log(username);
 
     return (
         <section className={`taskbar--main ${theme}`}>
