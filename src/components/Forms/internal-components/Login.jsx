@@ -6,8 +6,12 @@ import { UserContext } from "../../Context/userContext";
 
 import { useContext } from "react";
 
+import { useTranslation } from "react-i18next";
+
 
 export const Login = () => {
+
+    const [t] = useTranslation("global");
 
     
     const {connectSession} = useContext(UserContext);
@@ -29,13 +33,13 @@ export const Login = () => {
 
     return (
         <div className="form--body">
-            <h2 className="form--label">Sign In</h2>
+            <h2 className="form--label">{t("Form.title")}</h2>
 
             <form id='form' className='form--container' onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" {...register("username")} placeholder='Username' required className="form--input"/>
-                <input type="password" {...register("password")} placeholder='password' required className="form--input"/>
+                <input type="text" {...register("username")} placeholder={t("SignIn.username")} required className="form--input"/>
+                <input type="password" {...register("password")} placeholder={t("SignIn.password")} required className="form--input"/>
 
-                <button className='btn'>Sign In</button>
+                <button className='btn'>{t("SignIn.btnSignIn")}</button>
                 
             </form>
         </div>

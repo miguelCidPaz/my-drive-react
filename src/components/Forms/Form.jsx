@@ -1,10 +1,13 @@
 import { Login } from "./internal-components/Login";
 import { Register } from "./internal-components/Register";
 import {useState, useEffect} from 'react';
+import { useTranslation } from "react-i18next";
 
 export const Form = ({ action }) => {
 
     const [param, setParam] = useState(action);
+
+    const [t, i18n] = useTranslation("global");
 
     const whatForm = () => {
         switch (param) {
@@ -34,7 +37,7 @@ export const Form = ({ action }) => {
     return (
         <div className="form--main">
             {whatForm()}
-            <label className="form--label">{param === 'login' ? 'Todavía no tienes una cuenta?' : 'Ya estás logeado?'}<button className="btn btn--left" onClick={() => handleParam()}>{param === 'login' ? 'Create new account' : 'Log In'}</button></label>
+            <label className="form--label">{param === 'login' ? t("Form.changeLabel") : t("Form.changeForm")}<button className="btn btn--left" onClick={() => handleParam()}>{param === 'login' ? t("Form.signUp") : 'Log In'}</button></label>
         </div>
     )
 }

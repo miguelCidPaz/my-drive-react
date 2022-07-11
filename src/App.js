@@ -10,7 +10,6 @@ function App() {
   return (
     <ProviderLogin>
       <Desktop theme={theme} />
-
     </ProviderLogin>
   )
 }

@@ -3,8 +3,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import Crop32Icon from '@mui/icons-material/Crop32';
 import { WindowButton } from './internal-components/WindowButton';
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
+
 
 export const Window = ({ theme, children, id, closeWindow }) => {
+
+    const [t, i18n] = useTranslation("global");
+
     const [maximize, setMaximize] = useState(false)
     const [minimize, setMinimize] = useState(false)
 
@@ -23,9 +28,9 @@ export const Window = ({ theme, children, id, closeWindow }) => {
     }
 
     const options = [
-        { info: 'Cerrar', Symbol: CloseIcon, color: "close", id: id, click: closeWindow },
-        { info: 'Maximizar', Symbol: Crop32Icon, color: "maximize", id: 'max', click: resizeWindow },
-        { info: 'Minimizar', Symbol: MinimizeIcon, color: "minimize", id: 'min', click: resizeWindow }
+        { info: t("Info.close"), Symbol: CloseIcon, color: "close", id: id, click: closeWindow },
+        { info: t("Info.maximize"), Symbol: Crop32Icon, color: "maximize", id: 'max', click: resizeWindow },
+        { info: t("Info.minimize"), Symbol: MinimizeIcon, color: "minimize", id: 'min', click: resizeWindow }
     ]
 
     return (
