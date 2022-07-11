@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useTranslation } from "react-i18next";
 
 
-export const Window = ({ theme, children, id, closeWindow }) => {
+export const Window = ({ theme, children, id, closeWindow, title }) => {
 
     const [t, i18n] = useTranslation("global");
 
@@ -37,7 +37,7 @@ export const Window = ({ theme, children, id, closeWindow }) => {
         <section className={`window--main ${theme}`}>
             <div className='window--bar'>
                 <div className="window--options">
-                    <p className='window--title'>Configuracion</p>
+                    <p className='window--title'>{title}</p>
                 </div>
                 <div className="window--options">
                     {options.map((e, i) => {

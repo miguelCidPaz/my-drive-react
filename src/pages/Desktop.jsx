@@ -3,23 +3,25 @@ import { TaskBar } from "../components/TaskBar/TaskBar"
 import { Window } from "../components/Window/Window";
 import { ConfigExplorer } from "../components/ConfigExplorer/ConfigExplorer";
 import { FolderExplorer } from "../components/FolderExplorer/FolderExplorer";
+import { useTranslation } from "react-i18next";
 
 export const Desktop = ({ theme }) => {
     const [windows, setWindows] = useState([]);
+    const [t, i18n] = useTranslation("global");
 
     const whatWindowOpen = (id) => {
         switch (id) {
             case 'config':
-                return <ConfigExplorer theme={theme}/>
+                return <ConfigExplorer theme={theme} />
 
             case 'login':
-                return <ConfigExplorer id='login' theme={theme}/>
+                return <ConfigExplorer id='login' theme={theme} />
 
             case 'explorer':
-                return <FolderExplorer theme={theme}/>
+                return <FolderExplorer theme={theme} />
 
             default:
-                return <FolderExplorer id={id} theme={theme}/>
+                return <FolderExplorer id={id} theme={theme} />
         }
     }
 
@@ -46,8 +48,18 @@ export const Desktop = ({ theme }) => {
             <section className="desktop--file-explorer">
 
                 {windows.length > 0 ? windows.map((e, i) => {
+                    let WindowTitle = ''
+
+                    if (e === 'login') {
+                        WindowTitle = t("Info.account")
+                    } else if (e === 'config') {
+                        WindowTitle = t("Info.options")
+                    } else {
+                        WindowTitle = t("Info.folders")
+                    }
+
                     return (
-                        <Window theme={theme} id={e} closeWindow={closeWindow} key={i}>
+                        <Window theme={theme} id={e} closeWindow={closeWindow} key={i} title={WindowTitle}>
                             {whatWindowOpen(e)}
                         </Window>
                     )
