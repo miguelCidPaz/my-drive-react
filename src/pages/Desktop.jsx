@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { TaskBar } from "../components/TaskBar/TaskBar"
 import { Window } from "../components/Window/Window";
 import { ConfigExplorer } from "../components/ConfigExplorer/ConfigExplorer";
 import { FolderExplorer } from "../components/FolderExplorer/FolderExplorer";
 import { useTranslation } from "react-i18next";
+import { UserContext } from "../components/Context/userContext";
+import { reconnect } from "../helpers/reconnect";
 
 export const Desktop = ({ theme }) => {
     const [windows, setWindows] = useState([]);
     const [t, i18n] = useTranslation("global");
+    const { username, token, connectSession } = useContext(UserContext)
 
     const whatWindowOpen = (id) => {
         switch (id) {
@@ -38,10 +41,24 @@ export const Desktop = ({ theme }) => {
         setWindows(newWindows);
     }
 
+    const reviseToken = async () => {
+        console.log('revise');
+        const localToken = localStorage.getItem('uToken')
+        if (localToken) {
+            const response = await reconnect(localToken)
+            if (response) {
+                connectSession(response, localToken)
+            }
+        }
+    }
 
     useEffect(() => {
 
     }, [windows])
+
+    useEffect(() => {
+        reviseToken();
+    }, [])
 
     return (
         <main className="desktop--main">

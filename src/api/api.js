@@ -2,8 +2,6 @@ const { REACT_APP_API_URL } = process.env
 
 export function signIn(uName, password) {
 
-
-  console.log(REACT_APP_API_URL);
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -22,7 +20,7 @@ export function signIn(uName, password) {
   return fetch(`${REACT_APP_API_URL}usr/login`, requestOptions)
     .then(response => response.json())
     .then(result => {
-      localStorage.setItem('uToken', result);
+      localStorage.setItem('uToken', result.token);
       return result;
     })
     .catch(error => console.log('error', error));
