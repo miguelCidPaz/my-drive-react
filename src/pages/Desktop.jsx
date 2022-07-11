@@ -12,22 +12,6 @@ export const Desktop = ({ theme }) => {
     const [t, i18n] = useTranslation("global");
     const { username, token, connectSession } = useContext(UserContext)
 
-    const whatWindowOpen = (id) => {
-        switch (id) {
-            case 'config':
-                return <ConfigExplorer theme={theme} />
-
-            case 'login':
-                return <ConfigExplorer id='login' theme={theme} />
-
-            case 'explorer':
-                return <FolderExplorer theme={theme} />
-
-            default:
-                return <FolderExplorer id={id} theme={theme} />
-        }
-    }
-
     const openWindow = (id) => {
         if (windows.indexOf(id) === -1) {
             const newWindows = [...windows, id];
@@ -47,6 +31,22 @@ export const Desktop = ({ theme }) => {
             if (response) {
                 connectSession(response, localToken)
             }
+        }
+    }
+
+    const whatWindowOpen = (id) => {
+        switch (id) {
+            case 'config':
+                return <ConfigExplorer theme={theme} />
+
+            case 'login':
+                return <ConfigExplorer id='login' theme={theme} />
+
+            case 'explorer':
+                return <FolderExplorer theme={theme} openWindow={openWindow} />
+
+            default:
+                return <FolderExplorer id={id} theme={theme} openWindow={openWindow} />
         }
     }
 
