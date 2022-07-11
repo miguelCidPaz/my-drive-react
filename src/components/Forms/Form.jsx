@@ -9,7 +9,7 @@ export const Form = ({ action }) => {
 
     const [param, setParam] = useState(action);
     const [t, i18n] = useTranslation("global");
-    const { user, token } = useContext(UserContext)
+    const { user, token, connectSession } = useContext(UserContext)
 
     const whatForm = () => {
         switch (param) {
@@ -36,10 +36,15 @@ export const Form = ({ action }) => {
         }
     }
 
+    const logout = () => {
+        connectSession({ id: null, username: null }, null)
+        localStorage.removeItem('uToken')
+    }
+
     return (
         <div className="form--main">
-            {user && token ? <Account /> : whatForm()}
-            {user && token ? null : <label className="form--label">{param === 'login' ? t("Form.changeLabel") : t("Form.changeForm")}<button className="btn btn--left" onClick={() => handleParam()}>{param === 'login' ? t("Form.signUp") : 'Log In'}</button></label>}
+            {user && token ? <Account name={user.username} /> : whatForm()}
+            {user && token ? <button className="btn" onClick={() => logout()}>{t("Account.logout")}</button> : <label className="form--label">{param === 'login' ? t("Form.changeLabel") : t("Form.changeForm")}<button className="btn btn--left" onClick={() => handleParam()}>{param === 'login' ? t("Form.signUp") : 'Log In'}</button></label>}
         </div>
     )
 }

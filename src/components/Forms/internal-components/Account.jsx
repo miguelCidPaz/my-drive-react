@@ -1,7 +1,14 @@
-export const Account = () => {
+import { useTranslation } from "react-i18next";
+
+export const Account = ({ name }) => {
+    const [t] = useTranslation("global");
+
     return (
         <div>
-            Estas Logeado
+            <h2 className="form--label">
+                {t("Account.message")}
+            </h2>
+            <p className="form--label">{t("Account.welcome")} {name}</p>
         </div>
     )
 }
