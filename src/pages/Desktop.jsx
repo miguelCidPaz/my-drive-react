@@ -35,14 +35,12 @@ export const Desktop = ({ theme }) => {
         }
     }
 
-
     const closeWindow = (id) => {
         const newWindows = windows.filter(e => e !== id)
         setWindows(newWindows);
     }
 
     const reviseToken = async () => {
-        console.log('revise');
         const localToken = localStorage.getItem('uToken')
         if (localToken) {
             const response = await reconnect(localToken)
