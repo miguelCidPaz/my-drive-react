@@ -19,7 +19,6 @@ export const Item = ({ element, openWindow, deleteItem, downloadItem }) => {
         } else {
             const ext = itemName.split('.')[1]
             const nameFileInApi = `${element.id}.${ext}`
-            console.log(nameFileInApi);
             downloadItem(nameFileInApi)
         }
     }
