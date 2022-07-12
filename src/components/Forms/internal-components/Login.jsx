@@ -25,7 +25,7 @@ export const Login = () => {
         const pswd = parseInt(password);
 
         const response = await signIn(username, pswd);
-        connectSession(response.token, response.userForToken);
+        connectSession(response.userForToken, response.token);
         console.log(response);
     };
 

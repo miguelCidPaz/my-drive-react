@@ -1,6 +1,7 @@
 import { useEffect, useContext, useState } from 'react';
 import { deleteFile } from '../../helpers/deleteFile';
 import { deleteFolder } from '../../helpers/deleteFolder';
+import { downloadFile } from '../../helpers/downloadFile';
 import { getAllFilesByIdFolder } from '../../helpers/getAllFilesByIdFolder';
 import { getAllFoldersByIdUser } from '../../helpers/getAllFolders';
 import { UserContext } from '../Context/userContext'
@@ -8,15 +9,21 @@ import { Item } from '../Item/Item';
 
 export const FolderExplorer = ({ theme, id, openWindow }) => {
     const [items, setItems] = useState([])
-    const { user, token } = useContext(UserContext)
+    const { token, user } = useContext(UserContext)
 
 
     const callToApi = async () => {
         if (id) {
             const response = await getAllFilesByIdFolder(token, id)
+            console.log({ token });
+            console.log({ user });
+            console.log({ response });
             setItems(response)
         } else {
             const response = await getAllFoldersByIdUser(token, user.id)
+            console.log({ token });
+            console.log({ user });
+            console.log({ response });
             setItems(response)
         }
     }
@@ -31,6 +38,11 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
         setItems(newItems);
     }
 
+    const downloadItem = async (id) => {
+        const petition = await downloadFile(id, token);
+        console.log(petition);
+    }
+
     useEffect(() => {
         callToApi();
     }, [])
@@ -42,7 +54,11 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
     return (
         <div className="folderexplorer--main">
             {items.length > 0 ? items.map((e, i) => {
-                return <Item element={e} openWindow={openWindow} key={i} deleteItem={deleteItem} />
+                return <Item element={e}
+                    openWindow={openWindow}
+                    key={i}
+                    deleteItem={deleteItem}
+                    downloadItem={downloadItem} />
             }) : null}
         </div>
     )
