@@ -1,7 +1,7 @@
-const { REACT_APP_API_URL } = process.env
+const { REACT_APP_API_URL_SHORT } = process.env
 
-export const downloadFile = async (id, token) => {
-    const petition = await fetch(`${REACT_APP_API_URL}files/download/${id}`, {
+export const downloadFile = async (name, token) => {
+    const petition = await fetch(`${REACT_APP_API_URL_SHORT}${name}`, {
         method: 'get',
         headers: {
             'Content-Type': 'application/json',
@@ -9,7 +9,8 @@ export const downloadFile = async (id, token) => {
         }
     })
 
-    const res = await petition.json();
+    const body = petition.body
+    const res = await body.getReader();
 
     return res
 }

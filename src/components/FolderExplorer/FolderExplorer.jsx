@@ -15,15 +15,9 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
     const callToApi = async () => {
         if (id) {
             const response = await getAllFilesByIdFolder(token, id)
-            console.log({ token });
-            console.log({ user });
-            console.log({ response });
             setItems(response)
         } else {
             const response = await getAllFoldersByIdUser(token, user.id)
-            console.log({ token });
-            console.log({ user });
-            console.log({ response });
             setItems(response)
         }
     }
@@ -38,8 +32,8 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
         setItems(newItems);
     }
 
-    const downloadItem = async (id) => {
-        const petition = await downloadFile(id, token);
+    const downloadItem = async (name) => {
+        const petition = await downloadFile(name);
         console.log(petition);
     }
 

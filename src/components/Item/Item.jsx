@@ -2,7 +2,8 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { useState } from 'react';
 
 export const Item = ({ element, openWindow, deleteItem, downloadItem }) => {
-    const [comprobate, setComprobate] = useState(element.name.split('.').length > 1);
+    const itemName = element.name
+    const [comprobate, setComprobate] = useState(itemName.split('.').length > 1);
 
     const close = ({ name, id }) => {
         if (comprobate) {
@@ -13,10 +14,13 @@ export const Item = ({ element, openWindow, deleteItem, downloadItem }) => {
     }
 
     const open = () => {
-        if (comprobate) {
+        if (!comprobate) {
             openWindow(element.id)
         } else {
-            downloadItem(element.id)
+            const ext = itemName.split('.')[1]
+            const nameFileInApi = `${element.id}.${ext}`
+            console.log(nameFileInApi);
+            downloadItem(nameFileInApi)
         }
     }
 
