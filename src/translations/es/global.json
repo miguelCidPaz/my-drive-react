@@ -25,5 +25,10 @@
         "language": "Idioma",
         "account": "Cuenta",
         "options": "Opciones"
+    },
+    "Account": {
+        "welcome": "Bienvenido",
+        "message": "Estas conectado",
+        "logout": "Desconectar"
     }
 }

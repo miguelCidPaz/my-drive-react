@@ -25,5 +25,10 @@
         "language": "Language",
         "account": "Account",
         "options": "Options"
+    },
+    "Account": {
+        "welcome": "Welcome",
+        "message": "Are you connected",
+        "logout": "Log out"
     }
 }

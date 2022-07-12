@@ -1,6 +1,9 @@
 import { Form } from "../Forms/Form"
+import { useContext } from "react";
+import { UserContext } from "../Context/userContext";
 
 export const ConfigExplorer = ({ id }) => {
+    const { user, token } = useContext(UserContext)
     console.log(id);
     return (
         <div className="configexplorer--main">
