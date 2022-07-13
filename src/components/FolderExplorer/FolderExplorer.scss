@@ -2,5 +2,21 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2%;
+    gap: 30px;
+}
+
+.folderexplorer--button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: var(--secondary-color-deg-dark);
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin-top: 30px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color: var(--secondary-color);
+    }
 }

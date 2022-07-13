@@ -51,10 +51,12 @@ export function signUp({ username, pswd, email, biography, picture }) {
     redirect: 'follow',
   };
 
-  fetch(`${REACT_APP_API_URL}usr/register`, requestOptions)
+  return fetch(`${REACT_APP_API_URL}usr/register`, requestOptions)
     .then(response => response.json())
     .then(result => {
-      localStorage.setItem('uToken', result);
+      localStorage.setItem('uToken', result.token);
+      console.log(result);
+      return result
     })
     .catch(error => console.log('error', error));
 }

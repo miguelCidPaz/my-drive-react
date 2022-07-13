@@ -2,13 +2,19 @@ import { useEffect, useContext, useState } from 'react';
 import { deleteFile } from '../../helpers/deleteFile';
 import { deleteFolder } from '../../helpers/deleteFolder';
 import { downloadFile } from '../../helpers/downloadFile';
+import { createFile } from '../../helpers/createFile';
+import { createFolder } from '../../helpers/createFolder';
 import { getAllFilesByIdFolder } from '../../helpers/getAllFilesByIdFolder';
 import { getAllFoldersByIdUser } from '../../helpers/getAllFolders';
 import { UserContext } from '../Context/userContext'
 import { Item } from '../Item/Item';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { Create } from './internal-components/Create';
 
 export const FolderExplorer = ({ theme, id, openWindow }) => {
     const [items, setItems] = useState([])
+    const [deploy, setDeploy] = useState(false)
     const { token, user } = useContext(UserContext)
 
 
@@ -37,6 +43,25 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
         console.log(petition);
     }
 
+    const createItem = async (att, type) => {
+        if (type === 'folder') {
+            try {
+                const petition = await createFolder(token, user.id, att)
+                setItems([...items, petition])
+            } catch (e) {
+                console.log(e);
+            }
+
+        } else {
+            try {
+                const petition = await createFile(token, id, att, user.id)
+                setItems([...items, petition])
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }
+
     useEffect(() => {
         callToApi();
     }, [])
@@ -54,6 +79,14 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
                     deleteItem={deleteItem}
                     downloadItem={downloadItem} />
             }) : null}
+            <button className="folderexplorer--button" onClick={() => setDeploy(!deploy)}>
+                {deploy ? <RemoveIcon className='folderexplorer--icon' /> : <AddIcon className='folderexplorer--icon' />}
+            </button>
+            {deploy ? <Create
+                itemType={id ? 'file' : 'folder'}
+                createItem={createItem} />
+                : null}
+
         </div>
     )
 }
