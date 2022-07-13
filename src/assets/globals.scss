@@ -2,16 +2,23 @@
     --primary-color: #efefef;
     --primary-color-deg-light: #fff;
     --primary-color-deg-dark: #cbc9c9;
+    --primary-color-btn: rgb(0, 103, 26);
     --secondary-color: #1c232d;
     --secondary-color-deg-light: #242c395a;
     --secondary-color-deg-dark: #141920;
+    --hover-color-btn: rgb(0, 75, 10);
+    --text-color-btn: #efefef;
 }
 
 .dark {
     --primary-color: #1c232d;
     --primary-color-deg-light: #242c39;
     --primary-color-deg-dark: #141920;
+    --primary-color-btn: rgb(51, 0, 255);
     --secondary-color: #efefef;
     --secondary-color-deg-light: #ffffff40;
     --secondary-color-deg-dark: #cbc9c9;
+    // --secondary-color-btn: rgb(255, 255, 255);
+    --hover-color-btn: rgb(17, 0, 104);
+    --text-color-btn: #efefef;
 }

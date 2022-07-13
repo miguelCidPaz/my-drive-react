@@ -9,6 +9,14 @@
         "signIn": "Inicia Sessión",
         "title": "Mi Propio Drive"
     },
+    "SignUp": {
+        "username": "Usuario",
+        "email": "Email",
+        "password": "Contraseña",
+        "biography": "Biografía",
+        "register": "Registrate Ahora!",
+        "btnSignUp": "Entrar"
+    },
     "SignIn": {
         "username": "Usuario",
         "password": "Contraseña",
@@ -24,7 +32,9 @@
         "time": "Hora",
         "language": "Idioma",
         "account": "Cuenta",
-        "options": "Opciones"
+        "options": "Opciones",
+        "changeLanguage": "Cambiar a Inglés",
+        "changeTheme": "Cambiar Tema"
     },
     "Account": {
         "welcome": "Bienvenido",

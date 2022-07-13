@@ -7,10 +7,12 @@ import { useTranslation } from "react-i18next";
 import { UserContext } from "../components/Context/userContext";
 import { reconnect } from "../helpers/reconnect";
 
-export const Desktop = ({ theme }) => {
+export const Desktop = ({ theme, changeTheme }) => {
     const [windows, setWindows] = useState([]);
     const [t, i18n] = useTranslation("global");
     const { username, token, connectSession } = useContext(UserContext)
+
+    console.log(changeTheme);
 
     const openWindow = (id) => {
         if (windows.indexOf(id) === -1) {
@@ -37,7 +39,7 @@ export const Desktop = ({ theme }) => {
     const whatWindowOpen = (id) => {
         switch (id) {
             case 'config':
-                return <ConfigExplorer theme={theme} />
+                return <ConfigExplorer theme={theme} changeTheme={changeTheme}/>
 
             case 'login':
                 return <ConfigExplorer id='login' theme={theme} />

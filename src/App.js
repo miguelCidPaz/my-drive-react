@@ -7,9 +7,13 @@ import { ProviderLogin } from "./components/Context/userContext";
 function App() {
   const [theme, setTheme] = useState('dark');
 
+  const changeTheme = () => {
+    return theme === 'dark' ? setTheme('light') : setTheme('dark');
+  }
+
   return (
     <ProviderLogin>
-      <Desktop theme={theme} />
+      <Desktop theme={theme} changeTheme={changeTheme} />
     </ProviderLogin>
   )
 }
