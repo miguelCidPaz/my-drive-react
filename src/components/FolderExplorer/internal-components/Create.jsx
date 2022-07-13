@@ -17,13 +17,13 @@ export const Create = ({ itemType, createItem }) => {
         <>
             {itemType === 'folder' ?
                 <div className="folderexplorer--create">
-                    <input type="text" className="folderexplorer--input" onChange={(e) => setAtt(e.target.value)} />
-                    <button className="folderexplorer--button-create" onClick={() => checkAtt()}>Create</button>
+                    <input type="text" className="form--input" onChange={(e) => setAtt(e.target.value)} />
+                    <button className="btn" onClick={() => checkAtt()}>Create</button>
                 </div>
                 :
                 <div className="folderexplorer--create">
                     < input id="file" type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setAtt(e.target.files[0])} className="form--input" />
-                    <button className="folderexplorer--button-create" onClick={() => checkAtt()}>Create</button>
+                    <button className="btn btn--left" onClick={() => checkAtt()}>Create</button>
                 </div>
             }
         </>

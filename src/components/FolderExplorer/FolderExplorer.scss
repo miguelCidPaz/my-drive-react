@@ -20,3 +20,13 @@
         background-color: var(--secondary-color);
     }
 }
+
+.folderexplorer--create {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
