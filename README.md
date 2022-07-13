@@ -2,11 +2,65 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#Available Scripts">Aviable Scripts</a></li>
+    <li><a href="#Purpose of the application">Purpose of the application</a></li>
+    <li><a href="#Features">Features</a></li>
+    <li><a href="#Localized bugs and errors">Localized bugs and errors</a></li>
+    <li><a href="#To do">To do</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+  </ol>
+</details>
+
+## About The Project
+
+A web platform where you can manage your own folders and files locally.
+
+We have managed to simulate our own management cloud where you can access any folder you have.
+
+You will access your folders once you have been able to register on the platform or have logged in.
+
+<br>
+
+### Built With
+
+MyOwnDrive Front is developed with the following libraries and frameworks
+
+* [React JS](https://reactjs.org/)
+
+
+
+## Getting Started
+
+Next, we will show, step by step, the necessary configurations for the platform to work perfectly.
+
+### Prerequisites
+
+First of all you have to have installed the necessary packages and modules that are used in the application with the following command:
+
+
+  ```sh
+  npm install
+  ```
+
+### Installation
+
+Before starting the application, the server that manages all the platform information must be correctly configured. Next, we will link the repository where the server is so that it can be launched.
+
+[Backend GitHub Repository](https://github.com/miguelCidPaz/my-drive)
+
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+```sh
+npm start 
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +68,41 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Purpose of the application
 
-### `npm run build`
+<p>A website that simulates a computer desktop where you can register and create folders where you can save your documents to later download them.</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<ul>
+    <li>Day/Night mode</li>
+    <li>Translation</li>
+    <li>scrollable windows</li>
+    <li>security token</li>
+    <li>Create and delete folders that will contain files</li>
+    <li>Upload and delete files</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Localized bugs and errors
+<p>Bug in the handmade drag of the windows, the window jumps
+when clicking on it and sometimes it leaves the screen.</p>
+<p>Bug when downloading files, they cannot be downloaded although they can be viewed and downloaded
+from that new window.</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## To do
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>Fix bugs in the drag.</p>
+<p>Solve file download to be able to do it directly from the front.</p>
+<p>A search box to access any user file (it's already in the html but didn't have time to implement it).</p>
+<p>More features for the TaskBar as a date control according to time zone to be able to change it.</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contact
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Miguel Cid Paz - [@miguelCidPaz](https://github.com/miguelCidPaz) - miguel.cid.paz@gmail.com
 
-## Learn More
+Wilmer Sierra Salgado - [wsierra010](https://github.com/wsierra010) - wsierra010@gmail.com
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: [https://github.com/wsierra010/my-drive-react](https://github.com/wsierra010/my-drive-react)
