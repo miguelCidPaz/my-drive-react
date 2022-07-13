@@ -12,8 +12,6 @@ export const Desktop = ({ theme, changeTheme }) => {
     const [t, i18n] = useTranslation("global");
     const { username, token, connectSession } = useContext(UserContext)
 
-    console.log(changeTheme);
-
     const openWindow = (id) => {
         if (windows.indexOf(id) === -1) {
             const newWindows = [...windows, id];
@@ -39,7 +37,7 @@ export const Desktop = ({ theme, changeTheme }) => {
     const whatWindowOpen = (id) => {
         switch (id) {
             case 'config':
-                return <ConfigExplorer theme={theme} changeTheme={changeTheme}/>
+                return <ConfigExplorer theme={theme} changeTheme={changeTheme} />
 
             case 'login':
                 return <ConfigExplorer id='login' theme={theme} />

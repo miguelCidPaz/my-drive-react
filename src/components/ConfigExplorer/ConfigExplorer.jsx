@@ -5,16 +5,15 @@ import { UserContext } from "../Context/userContext";
 import { useTranslation } from "react-i18next";
 
 
-export const ConfigExplorer = ({ id,  changeTheme}) => {
+export const ConfigExplorer = ({ id, changeTheme }) => {
     const { user, token } = useContext(UserContext)
-    console.log(id);
 
     const [t, i18n] = useTranslation("global");
 
     const changeLang = () => {
-        if(i18n.language === 'es'){
+        if (i18n.language === 'es') {
             i18n.changeLanguage('en')
-        }else {
+        } else {
             i18n.changeLanguage('es');
         }
     }

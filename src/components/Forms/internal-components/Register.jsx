@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { UserContext } from '../../Context/userContext';
 import { useEffect, useState, useContext } from 'react';
 import { signUp } from '../../../api/api'
+import md5 from 'md5';
 
 import { useTranslation } from "react-i18next";
 
@@ -29,15 +30,13 @@ export const Register = () => {
 
     const { password } = data;
 
-    const pswd = parseInt(password);
+    const pswd = md5(password);
 
     const petition = await signUp({
       ...data,
       pswd,
       picture: file
     });
-
-    console.log(petition);
 
     const newUser = {
       id: petition.id,
@@ -55,11 +54,11 @@ export const Register = () => {
       <h2 className="form--label">{t("SignUp.register")}</h2>
 
       <form id='form' className='form--container' onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
-        <input type="text" {...register("username")} placeholder={t("SignUp.username")} className="form--input"/>
-        <input type="password" {...register("password")} placeholder={t("SignUp.password")} className="form--input"/>
-        <input type="text" {...register("email")} placeholder={t("SignUp.email")} className="form--input"/>
-        <input type="text" {...register("biography")} placeholder={t("SignUp.biography")} className="form--input"/>
-        <input id="file" type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setFile(e.target.files[0])} className="form--input"/>
+        <input type="text" {...register("username")} placeholder={t("SignUp.username")} className="form--input" />
+        <input type="password" {...register("password")} placeholder={t("SignUp.password")} className="form--input" />
+        <input type="text" {...register("email")} placeholder={t("SignUp.email")} className="form--input" />
+        <input type="text" {...register("biography")} placeholder={t("SignUp.biography")} className="form--input" />
+        <input id="file" type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setFile(e.target.files[0])} className="form--input" />
 
         <button className='btn'>{t("SignUp.btnSignUp")}</button>
       </form>
