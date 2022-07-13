@@ -27,7 +27,6 @@ export const Item = ({ element, openWindow, deleteItem, downloadItem }) => {
     }
 
     useEffect(() => {
-        console.log({ element });
         if (element !== undefined && element !== null) {
             const itemName = element.name
             setComprobate(itemName.split('.').length > 1)
