@@ -8,6 +8,8 @@ import { useContext } from "react";
 
 import { useTranslation } from "react-i18next";
 
+import md5 from 'md5';
+
 
 export const Login = () => {
 
@@ -22,11 +24,10 @@ export const Login = () => {
     const onSubmit = async data => {
         const { username, password } = data;
 
-        const pswd = parseInt(password);
+        const pswd = md5(password);
 
         const response = await signIn(username, pswd);
         connectSession(response.userForToken, response.token);
-        console.log(response);
     };
 
 
