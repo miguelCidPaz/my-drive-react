@@ -10,7 +10,7 @@ export const downloadFile = async (name, token) => {
     })
 
     const body = petition.body
-    const res = await body.getReader();
+    const res = body
 
     return res
 }

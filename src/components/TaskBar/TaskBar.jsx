@@ -29,7 +29,7 @@ export const TaskBar = ({ theme, openWindow }) => {
 
     const rightElements = [
         { type: 'main', info: t("Info.start"), symbol: !deploy ? KeyboardArrowDownIcon : KeyboardArrowUpIcon, click: () => setDeploy(!deploy) },
-        { type: 'search', info: t("Info.search"), symbol: SearchIcon },
+        /* { type: 'search', info: t("Info.search"), symbol: SearchIcon }, */
         { type: 'main', info: t("Info.folders"), symbol: FolderSharedIcon, click: () => openWindow('explorer') }
     ]
 

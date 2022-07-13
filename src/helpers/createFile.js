@@ -1,10 +1,9 @@
 const { REACT_APP_API_URL } = process.env
 
-export const createFile = async (token, id, file, id_user) => {
+export const createFile = async (token, id, file) => {
 
     var formdata = new FormData();
     formdata.append("id_folder", id)
-    formdata.append("id", id_user)
     formdata.append("file", file)
 
     var requestOptions = {
