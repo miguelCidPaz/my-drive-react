@@ -47,15 +47,15 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
         if (type === 'folder') {
             try {
                 const petition = await createFolder(token, user.id, att)
-                console.log(petition);
+                setItems([...items, petition])
             } catch (e) {
                 console.log(e);
             }
 
         } else {
             try {
-                const petition = await createFile(token, id, att)
-                console.log(petition);
+                const petition = await createFile(token, id, att, user.id)
+                setItems([...items, petition])
             } catch (e) {
                 console.log(e);
             }

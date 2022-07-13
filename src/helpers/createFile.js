@@ -1,20 +1,24 @@
 const { REACT_APP_API_URL } = process.env
 
-export const createFile = async (token, id, file) => {
-    file.originalname = file.name
-    file.filename = file.originalname
+export const createFile = async (token, id, file, id_user) => {
 
-    const petition = await fetch(`${REACT_APP_API_URL}files/upload-file`, {
-        method: 'post',
+    var formdata = new FormData();
+    formdata.append("id_folder", id)
+    formdata.append("id", id_user)
+    formdata.append("file", file)
+
+    var requestOptions = {
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
         },
-        body: JSON.stringify({
-            file: file,
-            id_folder: id
-        })
-    })
+        body: formdata,
+        redirect: 'follow',
+    };
+
+    const petition = await fetch(`${REACT_APP_API_URL}files/upload-file`, requestOptions)
+
+    console.log(petition);
 
     const res = await petition.json();
 
