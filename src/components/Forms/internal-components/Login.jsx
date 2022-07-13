@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 export const Login = () => {
 
-    const [t, i18n] = useTranslation("global");
+    const [t] = useTranslation("global");
 
 
     const { connectSession } = useContext(UserContext);
@@ -29,14 +29,6 @@ export const Login = () => {
         console.log(response);
     };
 
-    const changeLang = () => {
-        if(i18n.language === 'es'){
-            i18n.changeLanguage('en')
-        }else {
-            i18n.changeLanguage('es');
-        }
-    }
-
 
 
     return (
@@ -50,7 +42,6 @@ export const Login = () => {
                 <button className='btn'>{t("SignIn.btnSignIn")}</button>
 
             </form>
-            <button className="btn" onClick={changeLang}>Change Language</button>
 
         </div>
     )

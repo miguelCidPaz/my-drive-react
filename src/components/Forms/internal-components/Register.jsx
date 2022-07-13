@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
-
-import { useEffect, useState } from 'react';
+import { UserContext } from '../../Context/userContext';
+import { useEffect, useState, useContext } from 'react';
 import { signUp } from '../../../api/api'
 
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ export const Register = () => {
   const [t] = useTranslation("global");
 
 
+  const { user, token, connectSession } = useContext(UserContext)
   const [file, setFile] = useState(null);
 
   useEffect(() => {
@@ -24,18 +25,26 @@ export const Register = () => {
 
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = async (data) => {
 
     const { password } = data;
 
     const pswd = parseInt(password);
 
-    signUp({
+    const petition = await signUp({
       ...data,
       pswd,
       picture: file
+    });
+
+    console.log(petition);
+
+    const newUser = {
+      id: petition.id,
+      name: petition.username
     }
-    );
+
+    connectSession(newUser, petition.token)
   };
 
 
