@@ -6,26 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#Available Scripts">Aviable Scripts</a>
-      <!-- <ul>
-        <li><a href="#Purpose of the application">Purpose of the application</a></li>
-      </ul> -->
-    </li>
-    <li>
-      <a href="#Purpose of the application">Purpose of the application</a>
-      <!-- <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul> -->
-    </li>
+    <li><a href="#Available Scripts">Aviable Scripts</a></li>
+    <li><a href="#Purpose of the application">Purpose of the application</a></li>
     <li><a href="#Features">Features</a></li>
     <li><a href="#Localized bugs and errors">Localized bugs and errors</a></li>
     <li><a href="#To do">To do</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+
   </ol>
 </details>
 
