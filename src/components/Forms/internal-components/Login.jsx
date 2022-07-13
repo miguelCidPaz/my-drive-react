@@ -31,7 +31,6 @@ export const Login = () => {
 
 
 
-
     return (
         <div className="form--body">
             <h2 className="form--label">{t("Form.title")}</h2>
@@ -43,6 +42,7 @@ export const Login = () => {
                 <button className='btn'>{t("SignIn.btnSignIn")}</button>
 
             </form>
+
         </div>
     )
 }

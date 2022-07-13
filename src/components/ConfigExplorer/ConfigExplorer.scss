@@ -1,0 +1,36 @@
+.configexplorer--main {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+
+    margin-top: 3em;
+}
+
+
+
+
+.configexplorer-btn-lang,
+.configexplorer-btn-theme {
+
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 10px;
+    border-radius: 4px;
+
+    background-color: var(--primary-color-btn);
+    color: var(--text-color-btn);
+
+    &:hover {
+        background-color: var(--hover-color-btn);
+    }
+
+    &:active {
+        background-color: var(--hover-color-btn);
+    }
+}

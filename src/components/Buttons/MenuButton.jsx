@@ -6,6 +6,7 @@ export const MenuButton = ({ theme, Symbol, info, type, click = null }) => {
 
     const [t, i18n] = useTranslation("global");
 
+    
 
     return (
         type === 'search' ?
