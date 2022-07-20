@@ -37,13 +37,13 @@ export const Form = ({ action }) => {
     }
 
     const logout = () => {
-        connectSession({ id: null, username: null }, null)
+        connectSession({ id: null, name: null }, null)
         localStorage.removeItem('uToken')
     }
 
     return (
         <div className="form--main">
-            {user && token ? <Account name={user.username} /> : whatForm()}
+            {user && token ? <Account name={user.name} /> : whatForm()}
             {user && token ? <button className="btn" onClick={() => logout()}>{t("Account.logout")}</button> : <label className="form--label">{param === 'login' ? t("Form.changeLabel") : t("Form.changeForm")}<button className="btn btn--left" onClick={() => handleParam()}>{param === 'login' ? t("Form.signUp") : 'Log In'}</button></label>}
         </div>
     )

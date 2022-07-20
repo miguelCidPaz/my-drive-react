@@ -29,9 +29,6 @@ export const TaskBar = ({ theme, openWindow }) => {
 
     }, [deploy])
 
-    console.log({ user });
-    console.log({ token });
-
     const rightElements = [
         { type: 'main', info: t("Info.start"), symbol: !deploy ? KeyboardArrowDownIcon : KeyboardArrowUpIcon, click: () => setDeploy(!deploy) },
         /* { type: 'search', info: t("Info.search"), symbol: SearchIcon }, */
