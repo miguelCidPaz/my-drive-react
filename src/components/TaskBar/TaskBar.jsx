@@ -17,15 +17,20 @@ import { MenuButton } from "../Buttons/MenuButton";
 import { StartMenu } from "../StartMenu/StartMenu";
 
 import { useTranslation } from "react-i18next";
+import { UserContext } from '../Context/userContext';
 
 export const TaskBar = ({ theme, openWindow }) => {
 
     const [t, i18n] = useTranslation("global");
     const [deploy, setDeploy] = useState(false)
+    const { user, token } = useContext(UserContext);
 
     useEffect(() => {
 
     }, [deploy])
+
+    console.log({ user });
+    console.log({ token });
 
     const rightElements = [
         { type: 'main', info: t("Info.start"), symbol: !deploy ? KeyboardArrowDownIcon : KeyboardArrowUpIcon, click: () => setDeploy(!deploy) },
@@ -48,7 +53,9 @@ export const TaskBar = ({ theme, openWindow }) => {
             <div className="taskbar--internal-frame">
                 {rightElements.map((e, i) => {
                     return (
-                        <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                        i === 0 ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                            : token !== null ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                                : null
                     )
                 })}
             </div>
