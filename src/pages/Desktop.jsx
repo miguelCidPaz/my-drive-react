@@ -29,7 +29,11 @@ export const Desktop = ({ theme, changeTheme }) => {
         if (localToken) {
             const response = await reconnect(localToken)
             if (response) {
-                connectSession(response, localToken)
+                const myUser = {
+                    id: response.id,
+                    name: response.username
+                }
+                connectSession(myUser, localToken)
             }
         }
     }
