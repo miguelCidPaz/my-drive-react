@@ -46,9 +46,6 @@ export const Register = () => {
     connectSession(newUser, petition.token)
   };
 
-
-
-
   return (
     <div className="form--body">
       <h2 className="form--label">{t("SignUp.register")}</h2>

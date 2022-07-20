@@ -27,7 +27,7 @@ export const Login = () => {
         const pswd = md5(password);
 
         const response = await signIn(username, pswd);
-        connectSession(response.userForToken, response.token);
+        connectSession({ name: response.userForToken.username, id: response.userForToken.id }, response.token);
     };
 
 
