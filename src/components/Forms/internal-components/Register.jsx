@@ -20,8 +20,6 @@ export const Register = () => {
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    console.log('useEffect');
-    console.log(file);
   }, [file])
 
   const { register, handleSubmit } = useForm();

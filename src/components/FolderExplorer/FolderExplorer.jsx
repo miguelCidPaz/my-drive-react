@@ -15,7 +15,7 @@ import { Create } from './internal-components/Create';
 export const FolderExplorer = ({ theme, id, openWindow }) => {
     const [items, setItems] = useState([])
     const [deploy, setDeploy] = useState(false)
-    const { token, user } = useContext(UserContext)
+    const { user, token } = useContext(UserContext)
 
 
     const callToApi = async () => {
@@ -27,6 +27,7 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
             setItems(response)
         }
     }
+
 
     const deleteItem = async (id, name, type) => {
         const newItems = items.filter(e => e.id !== id)
@@ -69,6 +70,10 @@ export const FolderExplorer = ({ theme, id, openWindow }) => {
     useEffect(() => {
 
     }, [items])
+
+    useEffect(() => {
+        callToApi();
+    }, [user, token])
 
     return (
         <div className="folderexplorer--main">
