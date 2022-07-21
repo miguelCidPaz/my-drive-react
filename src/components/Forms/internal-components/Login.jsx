@@ -40,13 +40,15 @@ export const Login = () => {
                 <input type="text" {...register("username",
                     {
                         required: { value: true, message: 'Campo requerido' },
-                        maxLength: { value: 50, message: 'Tamaño maximo 50' }
+                        maxLength: { value: 50, message: 'Tamaño maximo 50' },
+                        minLength: { value: 3, message: 'Tamaño minimo 3' }
                     })} placeholder={t("SignIn.username")} required className="form--input" />
                 {errors.username && <div className='form--message-errors'><p>{errors.username.message}</p></div>}
 
                 <input type="password" {...register("password",
                     {
                         required: { value: true, message: 'Campo requerido' },
+                        maxLength: { value: 50, message: 'Tamaño maximo 50' },
                         minLength: { value: 3, message: 'Tamaño minimo 3' }
                     })} placeholder={t("SignIn.password")} required className="form--input" />
                 {errors.password && <div className='form--message-errors'><p>{errors.password.message}</p></div>}
