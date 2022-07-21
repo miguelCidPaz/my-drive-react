@@ -6,8 +6,11 @@ import { FolderExplorer } from "../components/FolderExplorer/FolderExplorer";
 import { useTranslation } from "react-i18next";
 import { UserContext } from "../components/Context/userContext";
 import { reconnect } from "../helpers/reconnect";
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 export const Desktop = ({ theme, changeTheme }) => {
+    const [viewDate, setViewDate] = useState(false)
     const [windows, setWindows] = useState([]);
     const [t, i18n] = useTranslation("global");
     const { username, token, connectSession } = useContext(UserContext)
@@ -56,7 +59,7 @@ export const Desktop = ({ theme, changeTheme }) => {
 
     useEffect(() => {
 
-    }, [windows])
+    }, [windows, viewDate])
 
     useEffect(() => {
         reviseToken();
@@ -87,11 +90,14 @@ export const Desktop = ({ theme, changeTheme }) => {
                 })
                     : null}
 
+                {viewDate ? <div className={`desktop--calendar ${theme}`}><FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /></div> : null}
+
             </section>
             <TaskBar
                 theme={theme}
                 openWindow={openWindow}
-                closeWindow={closeWindow} />
+                setViewDate={setViewDate}
+                viewDate={viewDate} />
         </main>
     )
 }

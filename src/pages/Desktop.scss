@@ -11,3 +11,12 @@
     background-image: url("https://www.muycomputer.com/wp-content/uploads/2022/03/mc-basics-v1-1200x720-1.jpg");
     background-size: cover;
 }
+
+.desktop--calendar {
+    width: 50%;
+    height: 50%;
+
+    * {
+        color: var(--secondary-color);
+    }
+}
