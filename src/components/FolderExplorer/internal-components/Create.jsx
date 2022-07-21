@@ -22,7 +22,7 @@ export const Create = ({ itemType, createItem }) => {
                 </div>
                 :
                 <div className="folderexplorer--create">
-                    < input id="file" type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setAtt(e.target.files[0])} className="form--input" />
+                    < input id="file" type="file" accept="*" onChange={e => setAtt(e.target.files[0])} className="form--input" />
                     <button className="btn btn--left" onClick={() => checkAtt()}>Create</button>
                 </div>
             }
