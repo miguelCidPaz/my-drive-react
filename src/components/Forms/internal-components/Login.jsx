@@ -19,7 +19,7 @@ export const Login = () => {
     const { connectSession } = useContext(UserContext);
 
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = async data => {
         const { username, password } = data;
@@ -37,8 +37,16 @@ export const Login = () => {
             <h2 className="form--label">{t("Form.title")}</h2>
 
             <form id='form' className='form--container' onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" {...register("username")} placeholder={t("SignIn.username")} required className="form--input" />
-                <input type="password" {...register("password")} placeholder={t("SignIn.password")} required className="form--input" />
+                <input type="text" {...register("username",
+                    {
+                        required: { value: true, message: 'Campo requerido' },
+                        maxLength: { value: 50, message: 'Tamaño maximo 50' }
+                    })} placeholder={t("SignIn.username")} required className="form--input" />
+                <input type="password" {...register("password",
+                    {
+                        required: { value: true, message: 'Campo requerido' },
+                        minLength: { value: 3, message: 'Tamaño minimo 3' }
+                    })} placeholder={t("SignIn.password")} required className="form--input" />
 
                 <button className='btn'>{t("SignIn.btnSignIn")}</button>
 

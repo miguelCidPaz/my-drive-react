@@ -38,14 +38,16 @@ export const Window = ({ theme, children, id, closeWindow, title }) => {
     ]
 
     const dragStart = (e) => {
-        const diffX = e.currentTarget.getBoundingClientRect().left;
-        const diffY = e.currentTarget.getBoundingClientRect().top;
-        setDiff({ diffX, diffY })
-        setDrag(true)
+        if (e.target.className === 'window--options') {
+            const diffX = e.currentTarget.getBoundingClientRect().left;
+            const diffY = e.currentTarget.getBoundingClientRect().top;
+            setDiff({ diffX, diffY })
+            setDrag(true)
+        }
     }
 
     const dragEnd = () => {
-        setDrag(false)
+        if (drag) setDrag(false)
     }
 
     const dragging = (e) => {
