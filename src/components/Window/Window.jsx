@@ -62,7 +62,10 @@ export const Window = ({ theme, children, id, closeWindow, title }) => {
     }
 
     return (
-        <section className={`window--main ${theme}`}
+        <section className={minimize ?
+            `window--main window--main-minimize ${theme}`
+            : maximize ? `window--main window--main-maximize ${theme}`
+                : `window--main ${theme}`}
             style={styles}
             onMouseDown={dragStart}
             onMouseMove={dragging}
@@ -86,9 +89,12 @@ export const Window = ({ theme, children, id, closeWindow, title }) => {
                     })}
                 </div>
             </div>
-            <>
-                {children}
-            </>
+            {!minimize ?
+                <div className='window--children'>
+                    {children}
+                </div>
+                : null
+            }
         </section>
     )
 }

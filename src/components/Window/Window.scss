@@ -19,7 +19,6 @@
 .window--main-minimize {
     bottom: 0;
     height: 50px;
-    width: 50px;
 }
 
 .window--bar {
@@ -44,7 +43,7 @@
 
 .window--title {
     text-align: left !important;
-    color: white;
+    color: var(--secondary-color);
 }
 
 .window--button-info {
