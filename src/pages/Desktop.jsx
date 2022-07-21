@@ -12,15 +12,15 @@ export const Desktop = ({ theme, changeTheme }) => {
     const [t, i18n] = useTranslation("global");
     const { username, token, connectSession } = useContext(UserContext)
 
-    const openWindow = (id) => {
-        if (windows.indexOf(id) === -1) {
-            const newWindows = [...windows, id];
+    const openWindow = (id, foldername) => {
+        if (windows.indexOf({ id: id, foldername: foldername }) === -1) {
+            const newWindows = [...windows, { id: id, foldername: foldername }];
             setWindows(newWindows);
         }
     }
 
     const closeWindow = (id) => {
-        const newWindows = windows.filter(e => e !== id)
+        const newWindows = windows.filter(e => e.id !== id)
         setWindows(newWindows);
     }
 
@@ -67,19 +67,21 @@ export const Desktop = ({ theme, changeTheme }) => {
             <section className="desktop--file-explorer">
 
                 {windows.length > 0 ? windows.map((e, i) => {
-                    let WindowTitle = ''
+                    let WindowTitle = e.foldername === undefined ? '' : e.foldername
 
-                    if (e === 'login') {
-                        WindowTitle = t("Info.account")
-                    } else if (e === 'config') {
-                        WindowTitle = t("Info.options")
-                    } else {
-                        WindowTitle = t("Info.folders")
+                    if (WindowTitle.length < 1) {
+                        if (e === 'login') {
+                            WindowTitle = t("Info.account")
+                        } else if (e === 'config') {
+                            WindowTitle = t("Info.options")
+                        } else {
+                            WindowTitle = t("Info.folders")
+                        }
                     }
 
                     return (
-                        <Window theme={theme} id={e} closeWindow={closeWindow} key={i} title={WindowTitle}>
-                            {whatWindowOpen(e)}
+                        <Window theme={theme} id={e.id} closeWindow={closeWindow} key={i} title={WindowTitle}>
+                            {whatWindowOpen(e.id)}
                         </Window>
                     )
                 })
