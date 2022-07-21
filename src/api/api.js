@@ -20,6 +20,7 @@ export function signIn(setErr, uName, password) {
   return fetch(`${REACT_APP_API_URL}usr/login`, requestOptions)
     .then(response => response.json())
     .then(result => {
+      console.log(result);
       if (result.status === 'error') {
         setErr(result.message)
         return false
