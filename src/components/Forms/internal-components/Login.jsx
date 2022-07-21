@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import md5 from 'md5';
 
 
-export const Login = () => {
+export const Login = ({ setErr }) => {
 
     const [t] = useTranslation("global");
 
@@ -22,12 +22,16 @@ export const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = async data => {
+        setErr(null)
         const { username, password } = data;
 
         const pswd = md5(password);
 
-        const response = await signIn(username, pswd);
-        connectSession({ name: response.userForToken.username, id: response.userForToken.id }, response.token);
+        const response = await signIn(setErr, username, pswd);
+        if (response) {
+            connectSession({ name: response.userForToken.username, id: response.userForToken.id }, response.token);
+        }
+
     };
 
 

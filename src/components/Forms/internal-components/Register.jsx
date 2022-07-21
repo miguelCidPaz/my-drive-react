@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 
 
-export const Register = () => {
+export const Register = ({ setErr }) => {
 
   const [t] = useTranslation("global");
 
@@ -25,23 +25,25 @@ export const Register = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
-
+    setErr(null)
     const { password } = data;
 
     const pswd = md5(password);
 
-    const petition = await signUp({
+    const petition = await signUp(setErr, {
       ...data,
       pswd,
       picture: file
     });
 
-    const newUser = {
-      id: petition.id,
-      name: petition.username
+    if (petition) {
+      const newUser = {
+        id: petition.id,
+        name: petition.username
+      }
+      connectSession(newUser, petition.token)
     }
 
-    connectSession(newUser, petition.token)
   };
 
   return (

@@ -75,3 +75,49 @@
         font-size: 15px;
     }
 }
+
+.form--err-to-api {
+    display: block;
+    background-color: red;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 15px;
+    color: whitesmoke;
+    animation: 9.5s err forwards;
+}
+
+@keyframes err {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

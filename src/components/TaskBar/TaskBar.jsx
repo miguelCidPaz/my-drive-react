@@ -51,7 +51,7 @@ export const TaskBar = ({ theme, openWindow }) => {
                 {rightElements.map((e, i) => {
                     return (
                         i === 0 ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
-                            : token !== null ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                            : token !== null && token !== undefined ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
                                 : null
                     )
                 })}
