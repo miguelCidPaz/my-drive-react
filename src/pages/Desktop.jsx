@@ -90,7 +90,10 @@ export const Desktop = ({ theme, changeTheme }) => {
                 })
                     : null}
 
-                {viewDate ? <div className={`desktop--calendar ${theme}`}><FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" /></div> : null}
+                {viewDate ?
+                    <div className={`desktop--calendar ${theme}`}>
+                        <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
+                    </div> : null}
 
             </section>
             <TaskBar
