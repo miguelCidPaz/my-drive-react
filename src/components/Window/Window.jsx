@@ -38,14 +38,16 @@ export const Window = ({ theme, children, id, closeWindow, title }) => {
     ]
 
     const dragStart = (e) => {
-        const diffX = e.currentTarget.getBoundingClientRect().left;
-        const diffY = e.currentTarget.getBoundingClientRect().top;
-        setDiff({ diffX, diffY })
-        setDrag(true)
+        if (e.target.className === 'window--options') {
+            const diffX = e.currentTarget.getBoundingClientRect().left;
+            const diffY = e.currentTarget.getBoundingClientRect().top;
+            setDiff({ diffX, diffY })
+            setDrag(true)
+        }
     }
 
     const dragEnd = () => {
-        setDrag(false)
+        if (drag) setDrag(false)
     }
 
     const dragging = (e) => {
@@ -60,7 +62,10 @@ export const Window = ({ theme, children, id, closeWindow, title }) => {
     }
 
     return (
-        <section className={`window--main ${theme}`}
+        <section className={minimize ?
+            `window--main window--main-minimize ${theme}`
+            : maximize ? `window--main window--main-maximize ${theme}`
+                : `window--main ${theme}`}
             style={styles}
             onMouseDown={dragStart}
             onMouseMove={dragging}
@@ -84,9 +89,12 @@ export const Window = ({ theme, children, id, closeWindow, title }) => {
                     })}
                 </div>
             </div>
-            <>
-                {children}
-            </>
+            {!minimize ?
+                <div className='window--children'>
+                    {children}
+                </div>
+                : null
+            }
         </section>
     )
 }

@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import md5 from 'md5';
 
 
-export const Login = () => {
+export const Login = ({ setErr }) => {
 
     const [t] = useTranslation("global");
 
@@ -19,15 +19,19 @@ export const Login = () => {
     const { connectSession } = useContext(UserContext);
 
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = async data => {
+        setErr(null)
         const { username, password } = data;
 
         const pswd = md5(password);
 
-        const response = await signIn(username, pswd);
-        connectSession(response.userForToken, response.token);
+        const response = await signIn(setErr, username, pswd);
+        if (response) {
+            connectSession({ name: response.userForToken.username, id: response.userForToken.id }, response.token);
+        }
+
     };
 
 
@@ -37,8 +41,21 @@ export const Login = () => {
             <h2 className="form--label">{t("Form.title")}</h2>
 
             <form id='form' className='form--container' onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" {...register("username")} placeholder={t("SignIn.username")} required className="form--input" />
-                <input type="password" {...register("password")} placeholder={t("SignIn.password")} required className="form--input" />
+                <input type="text" {...register("username",
+                    {
+                        required: { value: true, message: 'Campo requerido' },
+                        maxLength: { value: 50, message: 'Tamaño maximo 50' },
+                        minLength: { value: 3, message: 'Tamaño minimo 3' }
+                    })} placeholder={t("SignIn.username")} required className="form--input" />
+                {errors.username && <div className='form--message-errors'><p>{errors.username.message}</p></div>}
+
+                <input type="password" {...register("password",
+                    {
+                        required: { value: true, message: 'Campo requerido' },
+                        maxLength: { value: 50, message: 'Tamaño maximo 50' },
+                        minLength: { value: 3, message: 'Tamaño minimo 3' }
+                    })} placeholder={t("SignIn.password")} required className="form--input" />
+                {errors.password && <div className='form--message-errors'><p>{errors.password.message}</p></div>}
 
                 <button className='btn'>{t("SignIn.btnSignIn")}</button>
 

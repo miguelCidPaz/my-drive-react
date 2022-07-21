@@ -1,6 +1,6 @@
 const { REACT_APP_API_URL } = process.env
 
-export function signIn(uName, password) {
+export function signIn(setErr, uName, password) {
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -20,13 +20,19 @@ export function signIn(uName, password) {
   return fetch(`${REACT_APP_API_URL}usr/login`, requestOptions)
     .then(response => response.json())
     .then(result => {
-      localStorage.setItem('uToken', result.token);
-      return result;
+      console.log(result);
+      if (result.status === 'error') {
+        setErr(result.message)
+        return false
+      } else {
+        localStorage.setItem('uToken', result.token);
+        return result;
+      }
     })
-    .catch(error => console.log('error', error));
+    .catch(error => setErr(error.message));
 }
 
-export function signUp({ username, pswd, email, biography, picture }) {
+export function signUp(setErr, { username, pswd, email, biography, picture }) {
 
   const data = {
     "username": username,
@@ -54,9 +60,13 @@ export function signUp({ username, pswd, email, biography, picture }) {
   return fetch(`${REACT_APP_API_URL}usr/register`, requestOptions)
     .then(response => response.json())
     .then(result => {
-      localStorage.setItem('uToken', result.token);
-      console.log(result);
-      return result
+      if (result.status === 'error') {
+        setErr(result.message)
+        return false
+      } else {
+        localStorage.setItem('uToken', result.token);
+        return result
+      }
     })
-    .catch(error => console.log('error', error));
+    .catch(error => console.log(error));
 }

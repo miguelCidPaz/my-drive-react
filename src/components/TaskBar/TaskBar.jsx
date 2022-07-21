@@ -17,11 +17,22 @@ import { MenuButton } from "../Buttons/MenuButton";
 import { StartMenu } from "../StartMenu/StartMenu";
 
 import { useTranslation } from "react-i18next";
+import { UserContext } from '../Context/userContext';
 
-export const TaskBar = ({ theme, openWindow }) => {
+
+export const TaskBar = ({ theme, openWindow, setViewDate, viewDate }) => {
 
     const [t, i18n] = useTranslation("global");
     const [deploy, setDeploy] = useState(false)
+    const { user, token } = useContext(UserContext);
+
+    const changeLang = () => {
+        if (i18n.language === 'es') {
+            i18n.changeLanguage('en')
+        } else {
+            i18n.changeLanguage('es');
+        }
+    }
 
     useEffect(() => {
 
@@ -34,8 +45,8 @@ export const TaskBar = ({ theme, openWindow }) => {
     ]
 
     const leftElements = [
-        { type: 'micro', info: t("Info.time"), symbol: QueryBuilderIcon },
-        { type: 'micro', info: t("Info.language"), symbol: LanguageIcon }
+        { type: 'micro', info: t("Info.time"), symbol: QueryBuilderIcon, click: () => setViewDate(!viewDate) },
+        { type: 'micro', info: t("Info.language"), symbol: LanguageIcon, click: () => changeLang() }
     ]
 
     return (
@@ -48,7 +59,9 @@ export const TaskBar = ({ theme, openWindow }) => {
             <div className="taskbar--internal-frame">
                 {rightElements.map((e, i) => {
                     return (
-                        <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                        i === 0 ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                            : token !== null && token !== undefined ? <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
+                                : null
                     )
                 })}
             </div>
@@ -56,7 +69,7 @@ export const TaskBar = ({ theme, openWindow }) => {
             <div className="taskbar--internal-frame">
                 {leftElements.map((e, i) => {
                     return (
-                        <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} />
+                        <MenuButton key={i} type={e.type} info={e.info} Symbol={e.symbol} theme={theme} click={e.click} />
                     )
                 })}
             </div>
