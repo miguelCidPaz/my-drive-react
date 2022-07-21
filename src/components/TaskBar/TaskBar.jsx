@@ -26,6 +26,14 @@ export const TaskBar = ({ theme, openWindow, setViewDate, viewDate }) => {
     const [deploy, setDeploy] = useState(false)
     const { user, token } = useContext(UserContext);
 
+    const changeLang = () => {
+        if (i18n.language === 'es') {
+            i18n.changeLanguage('en')
+        } else {
+            i18n.changeLanguage('es');
+        }
+    }
+
     useEffect(() => {
 
     }, [deploy])
@@ -38,7 +46,7 @@ export const TaskBar = ({ theme, openWindow, setViewDate, viewDate }) => {
 
     const leftElements = [
         { type: 'micro', info: t("Info.time"), symbol: QueryBuilderIcon, click: () => setViewDate(!viewDate) },
-        { type: 'micro', info: t("Info.language"), symbol: LanguageIcon }
+        { type: 'micro', info: t("Info.language"), symbol: LanguageIcon, click: () => changeLang() }
     ]
 
     return (
