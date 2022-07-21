@@ -40,5 +40,11 @@
         "welcome": "Welcome",
         "message": "Are you connected",
         "logout": "Log out"
+    },
+    "Error": {
+        "max": "Max length ",
+        "min": "Min length ",
+        "req": "Required field",
+        "format": "Incorrect format"
     }
 }

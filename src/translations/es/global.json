@@ -40,5 +40,11 @@
         "welcome": "Bienvenido",
         "message": "Estas conectado",
         "logout": "Desconectar"
+    },
+    "Error": {
+        "max": "Tamaño maximo ",
+        "min": "Tamaño minimo ",
+        "req": "Campo requerido",
+        "format": "Formato incorrecto"
     }
 }
